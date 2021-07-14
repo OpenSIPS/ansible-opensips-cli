@@ -1,0 +1,14 @@
+---
+
+- name: Fetch openSIPS repo
+  get_url:
+        url: "{{ redhat_repo_url }}"
+        dest: /
+
+- name: Install openSIPS repo
+  dnf:
+          name: "/{{ redhat_repo }}"
+
+- name: Install openSIPS-cli
+  dnf:
+          name: "opensips-cli"

@@ -1,0 +1,4 @@
+---
+debian_repo_fetch: 'deb  https://apt.opensips.org buster cli-nightly'
+redhat_repo_url: 'https://yum.opensips.org/3.1/releases/el/8/x86_64/opensips-yum-releases-3.1-6.el8.noarch.rpm'
+redhat_repo: 'opensips-yum-releases-3.1-6.el8.noarch.rpm'

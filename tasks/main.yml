@@ -1,0 +1,15 @@
+---
+
+- name: Opensips-cli RedHat dnf setup
+  import_tasks: redhatdnf.yml
+  when: ansible_facts['os_family'] | lower == 'redhat' and ansible_python_version is version("3.0.0", ">=")
+
+- name: Opensips-cli RedHat yum setup
+  import_tasks: redhatyum.yml
+  when: ansible_facts['os_family'] | lower == 'redhat' and ansible_python_version is version("3.0.0", "<")
+
+- name: Opensips-cli Debian setup
+  import_tasks: debian.yml
+  when: ansible_facts['os_family'] | lower == 'debian'
+
+
