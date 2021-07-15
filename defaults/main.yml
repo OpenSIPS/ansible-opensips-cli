@@ -1,9 +1,7 @@
 ---
-debian_repo_fetch: 'deb  https://apt.opensips.org {{ debian_distr }} cli-nightly'
-debian_distr: buster
-opensips_cli_apt_key_id: '049AD65B'
-opensips_cli_apt_key_server: 'keyserver.ubuntu.com'
-opensips_apt_repo: 'http://apt.opensips.org'
+debian_repo_fetch: 'deb  https://apt.opensips.org {{ ansible_distribution_release }} cli-nightly'
+opensips_apt_key_id: '049AD65B'
+opensips_apt_key_server: 'keyserver.ubuntu.com'
 opensips_yum_release: 6
 opensips_yum_repo: 'https://yum.opensips.org'
 opensips_version: 3.1

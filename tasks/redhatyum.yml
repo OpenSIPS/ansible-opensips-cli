@@ -9,9 +9,16 @@
                   {{ ansible_architecture }}/opensips-yum-{{ opensips_build }}-
                   {{ opensips_version }}-{{ opensips_yum_release }}.el
                   {{ ansible_distribution_major_version }}.noarch.rpm
-
+  register: yum_repo_install_res
+  until: yum_repo_install_res is success
+  retries: 10
+  delay: 2
           
 
 - name: Install openSIPS-cli
   yum:
           name: opensips-cli
+  register: yum_cli_install_res
+  until: yum_cli_install_res is success
+  retries: 10
+  delay: 2  

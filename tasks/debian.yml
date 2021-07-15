@@ -3,20 +3,29 @@
   apt:
           name: gpg
           state: present
-
+  register: apt_prereq_result
+  until: apt_prereq_result is success
+  retries: 10
+  delay: 2
 
 - name: Add opensips-cli repo
-  copy:
-          content: "{{ debian_repo_fetch }}"
-          dest: /etc/apt/sources.list.d/opensips-cli.list
+  apt_repository:
+          repo: "{{ debian_repo_fetch }}"
+          state: present
 
 - name: Setup repository key from keyserver
   apt_key:
-          keyserver: "{{ opensips_cli_apt_key_server }}"
-          id: "{{ opensips_cli_apt_key_id }}"
+          keyserver: "{{ opensips_apt_key_server }}"
+          id: "{{ opensips_apt_key_id }}"
+  register: apt_key_result
+  until: apt_key_result is success
+  retries: 10
+  delay: 2
 
 - name: Install opensips-cli
   apt:
           name: opensips-cli
-          update_cache: yes
-         
+  register: apt_install_result
+  until: apt_install_result is success
+  retries: 10
+  delay: 2  
