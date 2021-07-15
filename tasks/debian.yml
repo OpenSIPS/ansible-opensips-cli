@@ -1,9 +1,19 @@
 ---
+- name: Install prerequisites for Debian
+  apt:
+          name: gpg
+          state: present
+
 
 - name: Add opensips-cli repo
   copy:
           content: "{{ debian_repo_fetch }}"
           dest: /etc/apt/sources.list.d/opensips-cli.list
+
+- name: Setup repository key from keyserver
+  apt_key:
+          keyserver: "{{ opensips_cli_apt_key_server }}"
+          id: "{{ opensips_cli_apt_key_id }}"
 
 - name: Install opensips-cli
   apt:

@@ -1,14 +1,17 @@
 ---
-
-- name: Fetch openSIPS repo
-  get_url:
-        url: "{{ redhat_repo_url }}"
-        dest: /
-
-- name: Install openSIPS repo
+- name: Install openSIPS repository
   dnf:
-          name: "/{{ redhat_repo }}"
+          name: '{{ repo | replace(" ", "") }}'
+  vars:
+          repo: >-
+                  {{ opensips_yum_repo }}/{{ opensips_version }}/
+                  {{ opensips_build }}/el/{{ ansible_distribution_major_version }}/
+                  {{ ansible_architecture }}/opensips-yum-{{ opensips_build }}-
+                  {{ opensips_version }}-{{ opensips_yum_release }}.el
+                  {{ ansible_distribution_major_version }}.noarch.rpm
+
+          
 
 - name: Install openSIPS-cli
   dnf:
-          name: "opensips-cli"
+          name: opensips-cli
