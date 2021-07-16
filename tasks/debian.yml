@@ -28,4 +28,4 @@
   register: apt_install_result
   until: apt_install_result is success
   retries: 10
-  delay: 2  
+  delay: 2

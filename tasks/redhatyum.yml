@@ -13,7 +13,6 @@
   until: yum_repo_install_res is success
   retries: 10
   delay: 2
-          
 
 - name: Install openSIPS-cli
   yum:
@@ -21,4 +20,4 @@
   register: yum_cli_install_res
   until: yum_cli_install_res is success
   retries: 10
-  delay: 2  
+  delay: 2
