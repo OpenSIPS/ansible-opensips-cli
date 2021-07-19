@@ -8,11 +8,6 @@
   retries: 10
   delay: 2
 
-- name: Add opensips-cli repo
-  apt_repository:
-          repo: "{{ debian_repo_fetch }}"
-          state: present
-
 - name: Setup repository key from keyserver
   apt_key:
           keyserver: "{{ opensips_apt_key_server }}"
@@ -21,6 +16,11 @@
   until: apt_key_result is success
   retries: 10
   delay: 2
+
+- name: Add opensips-cli repo
+  apt_repository:
+          repo: "{{ debian_repo_fetch }}"
+          state: present
 
 - name: Install opensips-cli
   apt:
