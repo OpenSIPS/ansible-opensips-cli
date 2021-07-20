@@ -1,4 +1,6 @@
 galaxy_info:
+  role_name: opensips_cli
+  namespace: opensips
   author: Daniel Airinei
   description: Role to install OpenSIPS CLI packages from official repositories
   company: OpenSIPS Project

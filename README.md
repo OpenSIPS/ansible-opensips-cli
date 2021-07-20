@@ -7,10 +7,10 @@ official OpenSIPS Repositories for [Debian](http://apt.opensips.org/) and
 Galaxy
 ----
 Install your role using [Ansible
-Galaxy](https://galaxy.ansible.com/razvancrainea/opensips-cli):
+Galaxy](https://galaxy.ansible.com/razvancrainea/opensips_cli):
 
 ```
-ansible-galaxy install razvancrainea.opensips-cli
+ansible-galaxy install razvancrainea.opensips_cli
 ```
 
 Role Variables:
@@ -31,7 +31,7 @@ The following is an example of a playbook that uses the `opensips-cli` role.
 ---
 - hosts: all
   roles:
-    - role: opensips-cli
+    - role: opensips_cli
 ```
  
 License:
