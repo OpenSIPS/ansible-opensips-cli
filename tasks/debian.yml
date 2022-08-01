@@ -1,7 +1,9 @@
 ---
 - name: Install prerequisites for Debian
   apt:
-          name: gpg
+          name:
+            - gpg
+            - apt-transport-https
           state: present
   register: apt_prereq_result
   until: apt_prereq_result is success
