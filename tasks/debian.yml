@@ -26,8 +26,10 @@
 
 - name: Install opensips-cli
   apt:
-          name: opensips-cli
+    name: opensips-cli
+    state: '{% if opensips_cli_update|d(false) %}latest{% else %}present{% endif %}'
   register: apt_install_result
   until: apt_install_result is success
   retries: 10
   delay: 2
+  tags: [opensips-cli-install]
