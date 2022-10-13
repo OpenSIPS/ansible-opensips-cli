@@ -1,10 +1,10 @@
 ---
 - name: Install prerequisites for Debian
   apt:
-          name:
-            - gpg
-            - apt-transport-https
-          state: present
+    name:
+      - gpg
+      - apt-transport-https
+    state: present
   register: apt_prereq_result
   until: apt_prereq_result is success
   retries: 10
@@ -12,8 +12,8 @@
 
 - name: Setup repository key from keyserver
   apt_key:
-          keyserver: "{{ opensips_apt_key_server }}"
-          id: "{{ opensips_apt_key_id }}"
+    keyserver: "{{ opensips_apt_key_server }}"
+    id: "{{ opensips_apt_key_id }}"
   register: apt_key_result
   until: apt_key_result is success
   retries: 10
@@ -21,8 +21,8 @@
 
 - name: Add opensips-cli repo
   apt_repository:
-          repo: "{{ debian_repo_fetch }}"
-          state: present
+    repo: "{{ debian_repo_fetch }}"
+    state: present
 
 - name: Install opensips-cli
   apt:
