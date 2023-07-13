@@ -10,6 +10,16 @@
   retries: 10
   delay: 2
 
+- name: Setup repository key from url
+  get_url:
+    url: '{{ opensips_apt_key_url }}'
+    dest: "{{ opensips_apt_key_dir }}/{{ opensips_apt_key_file }}"
+  register: apt_key_result
+  until: apt_key_result is success
+  retries: 10
+  delay: 2
+  when: not opensips_apt_key_default_keyring
+
 - name: Setup repository key from keyserver
   apt_key:
     keyserver: "{{ opensips_apt_key_server }}"
@@ -18,10 +28,12 @@
   until: apt_key_result is success
   retries: 10
   delay: 2
+  when: opensips_apt_key_default_keyring
 
 - name: Add opensips-cli repo
   apt_repository:
     repo: "{{ debian_repo_fetch }}"
+    filename: "{{ opensips_apt_name }}"
     state: present
 
 - name: Install opensips-cli
