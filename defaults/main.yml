@@ -4,7 +4,7 @@ opensips_apt_key_url: 'https://apt.opensips.org/opensips-org.gpg'
 opensips_apt_name: 'opensips-cli'
 opensips_apt_key_id: '049AD65B'
 opensips_apt_key_file: '{{ opensips_apt_name }}.gpg'
-opensips_apt_key_dir: /etc/apt/keyrings
+opensips_apt_key_dir: /etc/apt/trusted.gpg.d
 opensips_apt_key_server: 'keyserver.ubuntu.com'
 opensips_apt_key_default_keyring: false
 opensips_yum_repo: 'https://yum.opensips.org'
