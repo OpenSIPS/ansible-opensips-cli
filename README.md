@@ -18,8 +18,9 @@ Role Variables:
 The following variables can be set to tune the role's install behavior:
 * `opensips_build` - indicates the OpenSIPS build. Possible values are
 releases and nightly. Default value is nightly.
-* `opensips_yum_release` - indicates the release of OpenSIPS that has been
-used for RedHat packaging.
+* `opensips_yum_release` - pins the release of the `opensips-repo` RPM that
+configures the yum repository (not the OpenSIPS version). By default it is
+not set and the current `repository.rpm` is used.
 * `opensips_version` - indicates the OpenSIPS version whose repository is
 used. Default value is 4.0.
 
