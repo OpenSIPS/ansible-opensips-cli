@@ -1,5 +1,5 @@
 ---
-debian_repo_fetch: 'deb {% if not opensips_apt_key_default_keyring %}[signed-by={{ opensips_apt_key_dir }}/{{ opensips_apt_key_file }}] {% endif %}https://apt.opensips.org {{ ansible_facts.distribution_release }} cli-nightly'
+debian_repo_fetch: 'deb {% if not opensips_apt_key_default_keyring %}[signed-by={{ opensips_apt_key_dir }}/{{ opensips_apt_key_file }}] {% endif %}https://apt.opensips.org {{ ansible_facts.distribution_release }} {{ opensips_version }}-{{ opensips_build }}'
 opensips_apt_key_url: 'https://apt.opensips.org/opensips-org.gpg'
 opensips_apt_name: 'opensips-cli'
 opensips_apt_key_id: '049AD65B'
@@ -9,5 +9,5 @@ opensips_apt_key_server: 'keyserver.ubuntu.com'
 opensips_apt_key_default_keyring: false
 opensips_yum_repo: 'https://yum.opensips.org'
 opensips_rpm_key_url: 'https://yum.opensips.org/pubkey.gpg'
-opensips_version: 3.1
-opensips_build: releases
+opensips_version: '4.0'
+opensips_build: nightly
